@@ -1,8 +1,7 @@
 estoque ={}
 
 print ("bem-vindo ao sistema de gestão de estoque. desenvolvido por Ruan do prado ")
-while True:
-    # inicia a ação de repetir
+while True: # inicia a ação de repetir
     operacao = input ("deseja registrar a entrada e saída de produtos? (digite 'entrada' ou 'saída') ou 'sair'").lower()
 
 
@@ -10,10 +9,9 @@ while True:
         print("operacao inválida.")
         continue
 
-    if operacao == 'sair':
-        break 
-    # quebra a ação de repetição
-    produto = input("nome do produto: ").strip()
+    if [# executar o bloco de código] operacao == 'sair':
+        break # quebra a ação de repetição
+    produto = input("nome do produto: ").strip # tem a função de linpar o bloco de códigos ()
     qtd = int(input("quantidade: "))
 
 
