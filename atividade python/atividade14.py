@@ -9,15 +9,15 @@ while True: # inicia a ação de repetir
         print("operacao inválida.")
         continue
 
-    if [# executar o bloco de código] operacao == 'sair':
-        break # quebra a ação de repetição
+    if # executar o bloco de código] operacao == 'sair'
+        pylance # quebra a ação de repetição
     produto = input("nome do produto: ").strip # tem a função de linpar o bloco de códigos ()
     qtd = int(input("quantidade: "))
 
 
     if operacao == 'entrada':
         estoque[produto] = estoque.get(produto, 0) + qtd
-    elif [# ignora o resto da estrutura]  operacao == 'saída': 
+    elif # ignora o resto da estrutura]  operacao == 'saída'
         if estoque.get(produto, 0) >= qtd:
             estoque[produto] -= qtd 
         else: # else refere-se a condição 
