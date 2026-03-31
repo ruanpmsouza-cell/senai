@@ -10,7 +10,7 @@ while True: # inicia a ação de repetir
         continue
 
     if # executar o bloco de código] operacao == 'sair'
-        pylance # quebra a ação de repetição
+        pylance (# quebra a ação de repetição
     produto = input("nome do produto: ").strip # tem a função de linpar o bloco de códigos ()
     qtd = int(input("quantidade: "))
 
@@ -23,7 +23,6 @@ while True: # inicia a ação de repetir
         else: # else refere-se a condição 
             print("Erro:produto inexistente ou estoque insuficiente.")
 
-print("\n ---Estoque Final ---")
+print("\n Estoque Final ")
 for p, q in estoque.items():
     print(f"{p}: {q}")
-    # (p) refere-se a os produtos e a letra (q) a quantidade
