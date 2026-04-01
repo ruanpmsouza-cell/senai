@@ -1,51 +1,51 @@
-#  Print de boas-vindas com meu nome
+tipo = 0
+tipo_de_usuario = 0
+membro = tipo_de_usuario
+liberado = membro
+# começo apresentando o sistema
 print(" Bem-vindo ao Sistema de Acesso ")
+# declaração de informação de usuário
+tipo_de_usuario = input(" você é 'membro' ou 'visitante':")
+# declaração dos dias de funcionamento
+dia = input(" Digite o dia da semana, de 'segunda' a 'domingo' ")
+# declaração dos horarios de atendimento 
+hora = int(input(" Digite o horário  "))
+# verificação se acesso inválido
+acesso, erro = False, " Acesso inválido !!"
+# declaração dos dias de funcionamento de visitantes ou membros
+if dia in ['sábado', 'sabado', 'domingo']: 
+    # declaração de membro
+    if tipo == 'membro': acesso = True
+    # declaração de erro caso usuário for visitante e for diferente do fim de semana
+    else: erro = "Visitantes não tem acesso a os fins de semana "
+# declaração de acesso liberado a membros liberados nos dias de semana
+elif dia in ['segunda', 'terça', 'terca', 'quarta', 'quinta', 'sexta']:
+    # verificação de horário de funcionamento 
+    if not (9 <= 18):
+        # horario deve estar entre as 09 as 18 horas
+        erro = "Sistema fechado (09h às 18h)."
+        # caso esteja tudo certo o membro entrara sem problemas
+    elif tipo == 'membro':
+        # caso tudo esteja certo o sistema respondera acesso liberado
+        acesso = True
+        print(f"(seu acesso  foi {liberado}")
 
-#  Coleta de dados do usuário
-tipo_usuario = input("Você é 'membro' ou 'visitante'? ").strip().lower()
-dia_semana = input("Qual o dia da semana? (segunda a domingo): ").strip().lower()
-hora_atual = int(input("Qual a hora atual ?  "))
-
-# Variável auxiliar para controlar a permissão
-acesso_permitido = False
-motivo_negativa = ""
-
-# Lógica principal usando estruturas condicionais (D e E)
-if dia_semana in ['sábado', 'sabado', 'domingo']:
-    # Regra para fins de semana: Apenas membros entram
-    if tipo_usuario == 'membro':
-        acesso_permitido = True
-    else:
-        motivo_negativa = "Visitantes não têm acesso aos fins de semana."
-
-elif dia_semana in ['segunda', 'terça', 'terca', 'quarta', 'quinta', 'sexta']:
-    # Regra para dias úteis: Verificar horário comercial (9h às 18h)
-    if 9 <= hora_atual < 18:
-        if tipo_usuario == 'membro':
-            # Membros têm acesso ilimitado no horário comercial
-            acesso_permitido = True
-        elif tipo_usuario == 'visitante':
-            # Visitantes precisam informar o tempo e respeitar o limite de 4h
-            tempo_permanencia = int(input("Quanto tempo deseja permanecer? (horas inteiras): "))
-            
-            if tempo_permanencia <= 4:
-                # Verifica se o tempo de permanência não ultrapassa o fechamento (18h)
-                if hora_atual + tempo_permanencia <= 18:
-                    acesso_permitido = True
-                else:
-                    motivo_negativa = "O tempo de permanência ultrapassa o horário de fechamento (18h)."
-            else:
-                motivo_negativa = "Visitantes podem permanecer no máximo 4 horas."
+                # verificação das normas do visitante
+    elif tipo == 'visitante':
+    # verificação dos horarios se condizem com o usuario visitante 
+        tempo = int(input("Quanto tempo deseja ficar? (horas): "))
+    # verificação do tempo se condiz como usuario visitante 
+        if tempo <= 4 and (hora + tempo <= 18):
+        # caso horario e tempo corretos ele ira liberar o acesso de visitantes 
+            acesso = True
         else:
-            motivo_negativa = "Tipo de usuário inválido."
+        # verificação se horario esta diferente do modo de visitantes
+            erro = "Visitantes: máximo 4h e saída até as 18h."
+else:
+# verificação de dias de acesso liberado a visitantes se estiver incorreto 
+    erro = "Dia da semana inválido."
+    # aqui ele dira se o usuario pode ou nao entrar no sistema
+    if acesso:
+        print(" Acesso liberado! ")
     else:
-        motivo_negativa = "O espaço está fechado. Horário comercial: 09h às 18h."
-else:
-    motivo_negativa = "Dia da semana inválido."
-
-# F. Apresentação do resultado no console
-print("\n Resultado do Acesso ")
-if acesso_permitido:
-    print(" ACESSO PERMITIDO. Seja bem-vindo!")
-else:
-    print(f" ACESSO NEGADO. Motivo: {motivo_negativa}")
+        print(f" Acesso negado: {erro} ")
